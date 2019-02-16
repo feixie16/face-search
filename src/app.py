@@ -43,14 +43,15 @@ def main():
     if path:
         print '--SOURCE PATH:' + path
 
-        prepare_db()
+        # prepare_db()
 
         # Create a temporary directory to store cropped face images
         faces_path = '../images/faces'
         generate_faces(path, faces_path)
-
+        res = parse_batch_result(path)
+        print(res)
         # Generate vectors from images and store them in database
-        insert_features(faces_path, 'images')
+        # insert_features(faces_path, 'images')
 
     if img:
         print '--IMAGE PATH:' + img
@@ -67,8 +68,7 @@ def main():
         # print '--SEARCH TIME: ' + str(time)
 
         print(vector[0])
-	print (vector.shape)
-
+        print(vector.shape)
 
 if __name__ == '__main__':
     main()

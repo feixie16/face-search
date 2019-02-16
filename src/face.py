@@ -101,6 +101,14 @@ def save_to_db(table, mapper, db):
         print str(i) + ' records inserted!'
 
 
+def parse_batch_result(path):
+    batches, predictions = get_batch_predictions(path)
+    name2vector = {}
+    for i, prediction in enumerate(predictions):
+        name2vector[batches.filenames[i].split('/')[-1]] = prediction
+    return name2vector
+
+
 def insert_features(path, table):
     batches, predictions = get_batch_predictions(path)
 
