@@ -77,7 +77,7 @@ def get_batch_predictions(path, batch_size=32):
 
         Return: batches and vector representation of each images
     """
-    model = VGGFace(include_top=False, input_shape=(3, 224, 224), pooling='max')
+    model = VGGFace(include_top=False, input_shape=(224, 224, 3), pooling='max')
     gen = image.ImageDataGenerator(rescale=1./255)
 
     _batches = gen.flow_from_directory(path, target_size=(224, 224), batch_size=batch_size, shuffle=False)
