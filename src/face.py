@@ -60,11 +60,7 @@ def get_single_predictions(face_img):
     """
     if face_img.shape[1] == 3:
         face_img = face_img.transpose((-1, 0, 1))
-    print (face_img)
-    print (face_img.shape)
     face_img = face_img[np.newaxis, ...]
-    print (face_img)
-    print (face_img.shape)
     model = VGGFace(include_top=False, input_shape=(224, 224, 3), pooling='max')
     prediction = model.predict(face_img)
     return prediction
@@ -105,10 +101,13 @@ def parse_batch_result(path):
     batches, predictions = get_batch_predictions(path)
     name2vector = {}
     print(len(predictions))
-    for i, prediction in enumerate(predictions):
-        print(i)
-        name2vector[batches.filenames[i].split('/')[-1]] = prediction
-    return name2vector
+
+    print(predictions.shape)
+
+    # for i, prediction in enumerate(predictions):
+    #     print(i)
+    #     name2vector[batches.filenames[i].split('/')[-1]] = prediction
+    # return name2vector
 
 
 def insert_features(path, table):

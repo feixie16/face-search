@@ -48,7 +48,7 @@ def main():
         # Create a temporary directory to store cropped face images
         faces_path = '../images/faces'
         generate_faces(path, faces_path)
-        res = parse_batch_result(path)
+        res = parse_batch_result(faces_path)
         print(res)
         # Generate vectors from images and store them in database
         # insert_features(faces_path, 'images')
