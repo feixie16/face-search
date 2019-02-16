@@ -58,10 +58,14 @@ def get_single_predictions(face_img):
 
         Return: vector representation of the face
     """
-    if face_img.shape[2] == 3:
+    if face_img.shape[1] == 3:
         face_img = face_img.transpose((-1, 0, 1))
+    print (face_img)
+    print (face_img.shape)
     face_img = face_img[np.newaxis, ...]
-    model = VGGFace(include_top=False, input_shape=(3, 224, 224), pooling='max')
+    print (face_img)
+    print (face_img.shape)
+    model = VGGFace(include_top=False, input_shape=(224, 224, 3), pooling='max')
     prediction = model.predict(face_img)
     return prediction
 

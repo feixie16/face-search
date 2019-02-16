@@ -4,7 +4,8 @@ from face_query import search
 from face_detect import generate_faces, detect_face
 import os
 from db import prepare_db
-
+import numpy as np
+np.set_printoptions(suppress=True)
 
 def main():
 
@@ -65,7 +66,8 @@ def main():
         # print '--PERSON: ' + str(person)
         # print '--SEARCH TIME: ' + str(time)
 
-        print(vector)
+        print(vector[0])
+	print (vector.shape)
 
 
 if __name__ == '__main__':
