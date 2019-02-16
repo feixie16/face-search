@@ -40,17 +40,17 @@ def main():
             print mess
             sys.exit(2)
 
-    # if path:
-    #     print '--SOURCE PATH:' + path
-    #
-    #     prepare_db()
-    #
-    #     # Create a temporary directory to store cropped face images
-    #     faces_path = '../images/faces'
-    #     generate_faces(path, faces_path)
-    #
-    #     # Generate vectors from images and store them in database
-    #     insert_features(faces_path, 'images')
+    if path:
+        print '--SOURCE PATH:' + path
+
+        prepare_db()
+
+        # Create a temporary directory to store cropped face images
+        faces_path = '../images/faces'
+        generate_faces(path, faces_path)
+
+        # Generate vectors from images and store them in database
+        insert_features(faces_path, 'images')
 
     if img:
         print '--IMAGE PATH:' + img
