@@ -104,7 +104,9 @@ def save_to_db(table, mapper, db):
 def parse_batch_result(path):
     batches, predictions = get_batch_predictions(path)
     name2vector = {}
+    print(len(predictions))
     for i, prediction in enumerate(predictions):
+        print(i)
         name2vector[batches.filenames[i].split('/')[-1]] = prediction
     return name2vector
 
