@@ -1,6 +1,6 @@
 import sys, getopt
 from face import *
-from face_query import search
+# from face_query import search
 from face_detect import generate_faces, detect_face
 import os
 from db import prepare_db
