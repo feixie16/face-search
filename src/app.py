@@ -26,7 +26,7 @@ def main():
                 path = arg
             else:
                 print 'Path must link to a directory'
-                sys.exit(1)
+                # sys.exit(1)
 
         if opt in ('-i', '--image'):
             if os.path.isfile(arg):
@@ -39,17 +39,17 @@ def main():
             print mess
             sys.exit(2)
 
-    if path:
-        print '--SOURCE PATH:' + path
-
-        prepare_db()
-
-        # Create a temporary directory to store cropped face images
-        faces_path = '../images/faces'
-        generate_faces(path, faces_path)
-
-        # Generate vectors from images and store them in database
-        insert_features(faces_path, 'images')
+    # if path:
+    #     print '--SOURCE PATH:' + path
+    #
+    #     prepare_db()
+    #
+    #     # Create a temporary directory to store cropped face images
+    #     faces_path = '../images/faces'
+    #     generate_faces(path, faces_path)
+    #
+    #     # Generate vectors from images and store them in database
+    #     insert_features(faces_path, 'images')
 
     if img:
         print '--IMAGE PATH:' + img
@@ -61,9 +61,11 @@ def main():
         vector = get_single_predictions(face_img)
 
         # Show results
-        person, time = search(vector)
-        print '--PERSON: ' + str(person)
-        print '--SEARCH TIME: ' + str(time)
+        # person, time = search(vector)
+        # print '--PERSON: ' + str(person)
+        # print '--SEARCH TIME: ' + str(time)
+
+        print(vector)
 
 
 if __name__ == '__main__':
